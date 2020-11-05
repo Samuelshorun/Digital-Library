@@ -1,0 +1,42 @@
+dj-database-url==0.5.0
+Django==2.1.5
+gunicorn==19.9.0
+psycopg2-binary==2.7.7
+wheel==0.30.0
+whitenoise==4.1.2
+dj-database-url==0.5.0
+Django==2.1.5
+gunicorn==19.9.0
+psycopg2-binary==2.7.7
+wheel==0.30.0
+whitenoise==4.1.2
+
+This is how to start the project 
+*Start cmd
+*enter command "cd C:\Users\tolue\OneDrive\Desktop\Projectfile\digitallibrary"
+*enter command "cd python manage.py runserver"
+*start brower
+*enter address "http://127.0.0.1:8000/"
+this the Main Landing page for the digital library
+this is for yours of the library
+navigate through see all it functionalities
+
+*enter address "http://127.0.0.1:8000/admin"
+this the admin panel 
+manage books, users and so many more
+create book, users and so many more
+
+
+login detal
+	Admins
+username: samuel
+password: sampython
+
+username: admin
+password: python@123
+
+Users
+
+username: test1
+password: password@123
+this a test user

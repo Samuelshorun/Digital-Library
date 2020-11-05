@@ -1,0 +1,15 @@
+	Admins
+username: samuel
+password: sampython
+
+username: admin
+password: python@123
+
+url==== http://127.0.0.1:8000/admin/
+	
+
+Users
+
+username: test1
+password: password@123
+

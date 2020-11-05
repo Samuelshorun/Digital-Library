@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Title -->
+  {% block title %}<title>Digital Library</title>{% endblock %}
+   <!-- Meta -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+   
+   
+   <!-- Favicon -->
+   
+   {% load static %}
+   <!-- Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+   <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" type="text/css" />
+   
+   <!-- Mobile Menu -->
+   
+   <link href="{% static "css/mmenu.css" %}" rel="stylesheet" type="text/css" />
+   <link href="{% static "css/mmenu.positioning.css" %}" rel="stylesheet" type="text/css" />
+   
+   <!-- Stylesheet -->
+   <link href="{% static "style.css" %}" rel="stylesheet" type="text/css" />
+
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   <!--[if lt IE 9]>
+   <script src="js/html5shiv.min.js"></script>
+   <script src="js/respond.min.js"></script>
+   <![endif]-->
+  <!-- Add additional CSS in static file -->
+ 
+</head>
+
+<body>
+
+   <!-- Start: Header Section -->
+   <header id="header-v1" class="navbar-wrapper">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="navbar-header">
+                            <div class="navbar-brand">
+                                <h4>
+                                    <a href="{% url 'index' %}">
+                                        Digital Library
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <!-- Header Topbar -->
+                        <div class="header-topbar hidden-sm hidden-xs">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="topbar-info">
+                                        <a href="tel:09070765904"><i class="fa fa-phone"></i>09070765904</a>
+                                        <span>/</span>
+                                        <a href="{% url 'index' %}"><i class="fa fa-envelope"></i>support@digitallibrary.com</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="topbar-links">
+
+                                      {% if user.is_authenticated %}
+                                     <a href=""> <h4>User: {{ user.get_username }}</h4></a>
+                                      <a href="{% url 'my-borrowed' %}">My Borrowed</a>
+                                      <span>|</span>
+                                      <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>  
+                                    {% else %}
+                                      <a href="{% url 'login'%}?next={{request.path}}">Login</a>   
+                                    {% endif %} 
+
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navbar-collapse hidden-sm hidden-xs">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown active">
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="{% url 'index' %}">Home</a>
+                                    
+                                </li>
+                                <li><a href="{% url 'all-borrowed' %}">All borrowed</a></li>
+                              
+                              <li><a href="{% url 'books' %}">All books</a></li>
+                              <li><a href="{% url 'authors' %}">All authors</a></li>
+                              
+                              <li><a href="{% url 'services' %}">Services</a></li>
+                              <li><a href="{% url 'contact' %}">Contact</a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu hidden-lg hidden-md">
+                    <a href="#mobile-menu"><i class="fa fa-navicon"></i></a>
+                    <div id="mobile-menu">
+                        <ul>
+                            <li class="mobile-title">
+                                <h4>Navigation</h4>
+                                <a href="" class="close"></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'index' %}">Home</a>
+                                
+                            </li>
+                            
+                            <li><a href="{% url 'books' %}">All books</a></li>
+                            <li><a href="{% url 'authors' %}">All authors</a></li>
+                            <li><a href="{% url 'all-borrowed' %}">All borrowed</a></li>
+                            
+                            <li><a href="{% url 'services' %}">Services</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- End: Header Section -->
+<br/>
+ <!-- Start: Slider Section -->
+ <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
+            
+  <!-- Carousel slides -->
+  <div class="carousel-inner">
+      <div class="item active">
+          <figure>
+              <img alt="Home Slide" src="{% static "images/header-slider/home-v1/header-slide.jpg " %}" />
+          </figure>
+          <div class="container">
+              <div class="carousel-caption">
+                  
+                  <h2>Retrieval of Yoruba Information in Digital libraries</h2>
+                  <p>Document Structure Analysis</p>
+                  
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <figure>
+              <img alt="Home Slide" src=" {% static "images/header-slider/home-v1/header-slide.jpg" %}" />
+          </figure>
+          <div class="container">
+              <div class="carousel-caption">
+                <h2>Retrieval of Yoruba Information in Digital libraries</h2>
+                <p>Document Structure Analysis</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <figure>
+              <img alt="Home Slide" src=" {% static "images/header-slider/home-v1/header-slide.jpg" %}" />
+          </figure>
+          <div class="container">
+              <div class="carousel-caption">
+                <h2>Retrieval of Yoruba Information in Digital libraries</h2>
+                <p>Document Structure Analysis</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Controls -->
+  <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev"></a>
+  <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
+</div>
+<!-- End: Slider Section -->
+
+<br> 
+
+  <div class="container">
+   
+  {% block content %}{% endblock %}
+    
+  {% block pagination %}
+
+    {% if is_paginated %}
+        <div class="pagination" >
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+  {% endblock %} 
+  
+  
+  </div>
+</div>
+
+</div>
+
+
+ <!-- Start: Features -->
+ <section class="features">
+    <div class="container">
+        <ul>
+            <li class="bg-yellow">
+                <div class="feature-box">
+                    <i class="yellow"></i>
+                    <h3>Books</h3>
+                    <p>Curated collection of sources of information and similar resources, selected by experts and made accessible to a defined community for reference or borrowing, often in a quiet environment conducive to study. It provides physical or digital access to material, and may be a physical location or a virtual space, or both.</p>
+                    <a class="yellow" href="#">
+                        View Selection <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="bg-light-green">
+                <div class="feature-box">
+                    <i class="light-green"></i>
+                    <h3>eBooks</h3>
+                    <p>eBook is a non-editable, reflowable book that is converted to a digital format to be read on any digital device such as computer screens or mobile devices.</p>
+                    <a class="light-green" href="#">
+                        View Selection <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="bg-blue">
+                <div class="feature-box">
+                    <i class="blue"></i>
+                    <h3>DVDs</h3>
+                    <p>Digital optical disc storage format. The medium can store any kind of digital data and is widely used for software and other computer files as well as video programs watched using DVD players. </p>
+                    <a class="blue" href="#">
+                        View Selection <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="bg-red">
+                <div class="feature-box">
+                    <i class="red"></i>
+                    <h3>Magazines</h3>
+                    <p>A magazine is a periodical publication which is printed in gloss-coated and matte paper or electronically published.</p>
+                    <a class="red" href="#">
+                        View Selection <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="bg-violet">
+                <div class="feature-box">
+                    <i class="violet"></i>
+                    <h3>Audio</h3>
+                    <p>A recording of a book or magazine being read aloud. A recording on CD or cassette of a reading of a book, typically a novel. </p>
+                    <a class="violet" href="#">
+                        View Selection <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="bg-green">
+                <div class="feature-box">
+                    <i class="green"></i>
+                    <h3>eAudio</h3>
+                    <p>A recording on CD or cassette of a reading of a book, typically a novel. A recording of a book or magazine being read aloud.</p>
+                    <a class="green" href="#">
+                        View Selection <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- End: Features -->
+
+
+<!-- Start: Social Network -->
+<section class="social-network section-padding">
+    <div class="container">
+        <div class="center-content">
+            <h2 class="section-title">Follow Us</h2>
+            <span class="underline center"></span>
+            
+        </div>
+        <ul>
+            <li>
+                <a class="facebook" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-facebook-f"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="twitter" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-twitter"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="google" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-google-plus"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="rss" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-rss"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="linkedin" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-linkedin"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="youtube" href="#" target="_blank">
+                    <span>
+                        <i class="fa fa-youtube"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- End: Social Network --> 
+
+<!-- Start: Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div id="footer-widgets">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 widget-container">
+                    <div id="text-2" class="widget widget_text">
+                        <h3 class="footer-widget-title">About Digital labrary</h3>
+                        <span class="underline left"></span>
+                        <div class="textwidget">
+                            RETRIEVAL OF YORUBA INFORMATION IN DIGITAL LIBRARIES Document Structure Analysis
+
+                        </div>
+                        <address>
+                            <div class="info">
+                                <i class="fa fa-location-arrow"></i>
+                                <span>Ilorin Kwara State Nigeria</span>
+                            </div>
+                            <div class="info">
+                                <i class="fa fa-envelope"></i>
+                                <span><a href="">support@digitallibrary.com</a></span>
+                            </div>
+                            <div class="info">
+                                <i class="fa fa-phone"></i>
+                                <span><a href="tel:09070765904 ">09070765904 </a></span>
+                            </div>
+                        </address>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 widget-container">
+                    <div id="nav_menu-2" class="widget widget_nav_menu">
+                        
+
+                    </div>
+                </div>
+                <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
+                <div class="col-md-2 col-sm-6 widget-container">
+                    <div id="text-4" class="widget widget_text">
+                        
+
+                    </div>			
+                </div>
+                <div class="col-md-4 col-sm-6 widget-container">
+                    <div class="widget twitter-widget">
+                        
+
+                    </div>			
+                </div>
+            </div>
+        </div>                
+    </div>
+<div class="sub-footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-text col-md-3">
+                <p><a target="_blank" href="{% url 'index' %}">Digital library</a></p>
+            </div>
+            <div class="col-md-9 pull-right">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'all-borrowed' %}">All borrowed</a></li>
+                    <li><a href="{% url 'books' %}">All books</a></li>
+                    <li><a href="{% url 'authors' %}">All authors</a></li>
+                    <li><a href="{% url 'services' %">Services</a></li>
+                    <li><a href="{% url 'contact' %">Contact</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End: footer -->
+{% load static %}
+<!-- jQuery Latest Version 1.x -->
+<script type="text/javascript" src="{% static "js/jquery-1.12.4.min.js" %}"></script>
+        
+<!-- jQuery UI -->
+<script type="text/javascript" src="{% static "js/jquery-ui.min.js"   %}"></script>
+
+<!-- jQuery Easing -->
+<script type="text/javascript" src="{% static "js/jquery.easing.1.3.js" %}"></script>
+
+<!-- Bootstrap -->
+<script type="text/javascript" src="{% static "js/bootstrap.min.js" %} "></script>
+
+<!-- Mobile Menu -->
+<script type="text/javascript" src="{% static "js/mmenu.min.js" %}"></script>
+
+<!-- Harvey - State manager for media queries -->
+<script type="text/javascript" src="{% static "js/harvey.min.js" %}"></script>
+
+<!-- Waypoints - Load Elements on View -->
+<script type="text/javascript" src="{% static "js/waypoints.min.js" %}"></script>
+
+<!-- Facts Counter -->
+<script type="text/javascript" src="{% static "js/facts.counter.min.js" %}"></script>
+
+<!-- MixItUp - Category Filter -->
+<script type="text/javascript" src="{% static "js/mixitup.min.js" %}"></script>
+
+<!-- Owl Carousel -->
+<script type="text/javascript" src="{% static "js/owl.carousel.min.js" %}"></script>
+
+<!-- Accordion -->
+<script type="text/javascript" src="{% static "js/accordion.min.js" %}"></script>
+
+<!-- Responsive Tabs -->
+<script type="text/javascript" src="{% static "js/responsive.tabs.min.js" %}"></script>
+
+<!-- Responsive Table -->
+<script type="text/javascript" src="{% static "js/responsive.table.min.js" %}"></script>
+
+<!-- Masonry -->
+<script type="text/javascript" src="{% static "js/masonry.min.js" %}"></script>
+
+<!-- Carousel Swipe -->
+<script type="text/javascript" src="{% static "js/carousel.swipe.min.js" %}"></script>
+
+<!-- bxSlider -->
+<script type="text/javascript" src="{% static "js/bxslider.min.js" %}"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="{% static "js/main.js" %}"></script>
+</body>
+</html>
